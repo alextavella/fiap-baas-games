@@ -26,14 +26,20 @@ class GameController {
         return service.save(model)
     }
 
-    @GetMapping(value = "/:id")
-    fun get(id: String): Optional<GameModel>
+    @GetMapping(value = "/{id}")
+    fun get(@PathVariable id: String): Optional<GameModel>
     {
         return service.get(id)
     }
 
-    @DeleteMapping(value = "/:id")
-    fun remove(id: String)
+    @GetMapping(value = "/name/{name}")
+    fun find(@PathVariable name: String): List<GameModel>
+    {
+        return service.findByName(name)
+    }
+
+    @DeleteMapping(value = "/{id}")
+    fun remove(@PathVariable id: String)
     {
         service.remove(id)
     }

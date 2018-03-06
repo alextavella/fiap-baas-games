@@ -31,4 +31,9 @@ class GameService {
     {
         return repository.deleteById(id)
     }
+
+    fun findByName(name: String): List<GameModel>
+    {
+        return repository.findByNameIgnoreCaseContaining(name)
+    }
 }

@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository
 @Repository
 interface GameRespository : MongoRepository<GameModel, String> {
 
+    fun findByNameIgnoreCaseContaining(name: String): List<GameModel>
 }
